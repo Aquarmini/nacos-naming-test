@@ -92,7 +92,7 @@ return [
             'group_name' => 'api',
             'namespace_id' => 'default',
             'heartbeat' => 5,
-            'ephemeral' => false,
+            'ephemeral' => true,
             'grpc' => [
                 'enable' => true,
             ],
