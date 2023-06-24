@@ -28,6 +28,16 @@ return [
             ],
         ],
         [
+            'name' => 'jsonrpc-http-2',
+            'type' => Server::SERVER_HTTP,
+            'host' => '0.0.0.0',
+            'port' => 9503,
+            'sock_type' => SWOOLE_SOCK_TCP,
+            'callbacks' => [
+                Event::ON_REQUEST => [\Hyperf\JsonRpc\HttpServer::class, 'onRequest'],
+            ],
+        ],
+        [
             'name' => 'jsonrpc-http',
             'type' => Server::SERVER_HTTP,
             'host' => '0.0.0.0',

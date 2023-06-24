@@ -11,16 +11,20 @@ declare(strict_types=1);
  */
 namespace App\Controller;
 
+use App\RPC\CalculatorServiceInterface;
+
 class IndexController extends Controller
 {
     public function index()
     {
         $user = $this->request->input('user', 'Hyperf');
         $method = $this->request->getMethod();
+        $res = di()->get(CalculatorServiceInterface::class)->calculate(1, 2);
         return $this->response->success([
             'user' => $user,
             'method' => $method,
             'message' => 'Hello Hyperf.',
+            'ret' => $res,
         ]);
     }
 }
